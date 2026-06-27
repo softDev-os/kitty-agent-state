@@ -1,0 +1,9 @@
+{
+  "title": {
+    "baseTitle": ""
+  },
+  "notifications": {
+    "enabled": true,
+    "states": ["working", "blocked", "idle"]
+  }
+}
