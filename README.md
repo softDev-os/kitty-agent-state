@@ -10,7 +10,7 @@ Pi extension for Kitty + Hyprland users. It publishes agent state visually and a
 
 ## States
 
-- `● working — <project>` / `🔵 Pi trabajando — <project>`
+- `● working — <project>` / `🔵 Pi trabajando — <project>` (visual only, no sound)
 - `● blocked — <project>` / `🔴 Pi necesita atención — <project>`
 - `<project>` / `🟢 Pi terminó — <project>`
 

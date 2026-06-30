@@ -122,15 +122,16 @@ The system MUST emit a Hyprland notification on every state transition by defaul
 
 - Notifications MUST use concise, actionable copy with the current project when known, e.g. `🔴 Pi necesita atención — .pi`.
 - The visual style MUST use the Tokyo Night palette: working blue (`#7aa2f7`), blocked red (`#f7768e`), idle green (`#9ece6a`), with `rgba(...ff)` Hyprland color formatting.
-- The system SHOULD play an audible state sound when a notification is emitted, using available freedesktop sounds through `paplay`.
+- The system SHOULD play audible sounds for attention-worthy or completion states (`blocked`, `idle`) using available freedesktop sounds through `paplay`; `working` SHOULD remain silent by default because the user just initiated the prompt.
 - Notification or sound failures MUST be non-fatal and MUST be logged rather than thrown.
 - Re-emitting the same state MUST NOT create duplicate notifications.
 
-#### Scenario: Working transition notifies context
+#### Scenario: Working transition notifies context without sound
 
 - GIVEN a session with `cwd=/home/me/project` and project `project-x`
 - WHEN the session enters `working`
-- THEN a notification is emitted that includes the working state, cwd, project, and Tokyo Night styling
+- THEN a notification is emitted that includes the working state, project, and Tokyo Night styling
+- AND no audible sound is played for the `working` transition
 
 #### Scenario: Shutdown notifies idle
 

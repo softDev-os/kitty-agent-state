@@ -238,6 +238,7 @@ function notificationBody(state: SessionState): string {
 	return `🟢 Pi terminó — ${project}`;
 }
 function playNotificationSound(state: SessionState): void {
+	if (state.status === STATUS.WORKING) return;
 	const soundPath = SOUND_PATHS[state.status];
 	if (!existsSync(soundPath)) return;
 	try {
