@@ -42,3 +42,9 @@ Canonical spec is in `openspec/specs/kitty-agent-state/spec.md`.
 
 Built with reference to [gentle-agent-state](https://github.com/Gentleman-Programming/gentle-agent-state) by Gentleman Programming — the original tmux/Zellij agent-state tool. This is a ground-up adaptation for Kitty + Hyprland environments, rewritten as a native Pi extension.
 
+
+## Screenshots
+
+![Desktop with kitty-agent-state active](docs/screenshots/desktop.png)
+
+> More screenshots coming soon — showing blocked notifications, idle restore, and multi-session behavior.
