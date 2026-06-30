@@ -37,3 +37,8 @@ Set `KITTY_AGENT_STATE=0` to disable the extension for a session.
 ## OpenSpec
 
 Canonical spec is in `openspec/specs/kitty-agent-state/spec.md`.
+
+## Inspiration
+
+Built with reference to [gentle-agent-state](https://github.com/Gentleman-Programming/gentle-agent-state) by Gentleman Programming — the original tmux/Zellij agent-state tool. This is a ground-up adaptation for Kitty + Hyprland environments, rewritten as a native Pi extension.
+
