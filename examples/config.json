@@ -4,6 +4,6 @@
   },
   "notifications": {
     "enabled": true,
-    "states": ["working", "blocked", "idle"]
+    "states": ["blocked", "idle"]
   }
 }

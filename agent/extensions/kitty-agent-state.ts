@@ -41,7 +41,7 @@ const DEFAULT_CONFIG: Config = {
 	},
 	notifications: {
 		enabled: true,
-		states: [STATUS.WORKING, STATUS.BLOCKED, STATUS.IDLE],
+		states: [STATUS.BLOCKED, STATUS.IDLE],
 	},
 	blockedDetection: {
 		inputTools: ["ask", "askuserquestion", "select", "confirm", "prompt", "requestuserinput"],
@@ -251,6 +251,7 @@ function playNotificationSound(state: SessionState): void {
 }
 function publishNotification(state: SessionState): void {
 	if (
+		state.status === STATUS.WORKING ||
 		!config.notifications.enabled ||
 		!config.notifications.states.includes(state.status)
 	)

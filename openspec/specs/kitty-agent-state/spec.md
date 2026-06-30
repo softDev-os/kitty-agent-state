@@ -122,15 +122,16 @@ The system MUST emit a Hyprland notification on every state transition by defaul
 
 - Notifications MUST use concise, actionable copy with the current project when known, e.g. `🔴 Pi necesita atención — .pi`.
 - The visual style MUST use the Tokyo Night palette: working blue (`#7aa2f7`), blocked red (`#f7768e`), idle green (`#9ece6a`), with `rgba(...ff)` Hyprland color formatting.
-- The system SHOULD play audible sounds for attention-worthy or completion states (`blocked`, `idle`) using available freedesktop sounds through `paplay`; `working` SHOULD remain silent by default because the user just initiated the prompt.
+- The system SHOULD publish notifications and audible sounds only for attention-worthy or completion states (`blocked`, `idle`) by default; `working` SHOULD remain silent because the user just initiated the prompt.
 - Notification or sound failures MUST be non-fatal and MUST be logged rather than thrown.
 - Re-emitting the same state MUST NOT create duplicate notifications.
 
-#### Scenario: Working transition notifies context without sound
+#### Scenario: Working transition updates title only
 
 - GIVEN a session with `cwd=/home/me/project` and project `project-x`
 - WHEN the session enters `working`
-- THEN a notification is emitted that includes the working state, project, and Tokyo Night styling
+- THEN the Kitty title updates to the working state
+- AND no Hyprland notification is emitted
 - AND no audible sound is played for the `working` transition
 
 #### Scenario: Shutdown notifies idle
@@ -157,7 +158,7 @@ The system MUST read configuration from `~/.config/kitty-agent-state/config.json
 | `title.baseTitle` | string | project/cwd-derived label or empty string | Title baseline used for active suffixes and idle restoration. |
 | `title.remoteControlFallback` | boolean | `false` | Optional Kitty remote-control fallback when `ctx.ui.setTitle` is unavailable. |
 | `notifications.enabled` | boolean | `true` | Enables Hyprland notifications. |
-| `notifications.states` | array | `['working', 'blocked', 'idle']` | States that notify by default. |
+| `notifications.states` | array | `['blocked', 'idle']` | States that notify by default. |
 | `blockedDetection.inputTools` | array | `['ask', 'askuserquestion', 'select', 'confirm', 'prompt', 'requestuserinput']` | Tools treated as user-input/confirmation tools. |
 | `blockedDetection.riskyBashPatterns` | array | built-in destructive patterns | User-extendable shell-pattern matchers. |
 | `logging.path` | string | `~/.local/state/kitty-agent-state/debug.log` | Append-only debug log file. |
